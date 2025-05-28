@@ -57,6 +57,7 @@ function updateBoard() {
 
         }
     });
+    console.log(board)
 }
 
 function updatedMessage() {
@@ -83,7 +84,7 @@ function updatedMessage() {
 
 function handleClick(index) {
     if (aiTurn) { return }
-    if (squareEls[index].textContent !== '') { return }
+    if (board[index] !== '') { return }
     if (winner) {
         return;
     }
