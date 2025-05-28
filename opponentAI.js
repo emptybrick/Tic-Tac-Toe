@@ -7,7 +7,7 @@ function findBestMove(board) {
 
     for (let i = 0; i < 9; i++) {
         if (board[i] === '') {
-            board[i] = 'O';
+            board[i] = player2.name;
             let score = minimax(board, 0, false, -Infinity, Infinity);
             board[i] = '';
             if (score > bestScore) {
@@ -31,15 +31,15 @@ function minimax(board, depth, isMaximizing, alpha, beta) {
         }
     }
 
-    if (winner === 'O') return 10 - depth; // AI wins
-    if (winner === 'X') return depth - 10; // Human wins
+    if (winner === player2.name) return 10 - depth; // AI wins
+    if (winner === player1.name) return depth - 10; // Human wins
     if (!board.includes('')) return 0; // Draw
 
     if (isMaximizing) {
         let maxScore = -Infinity;
         for (let i = 0; i < 9; i++) {
             if (board[i] === '') {
-                board[i] = 'O';
+                board[i] = player2.name;
                 let score = minimax(board, depth + 1, false, alpha, beta);
                 board[i] = '';
                 maxScore = Math.max(maxScore, score);
@@ -52,7 +52,7 @@ function minimax(board, depth, isMaximizing, alpha, beta) {
         let minScore = Infinity;
         for (let i = 0; i < 9; i++) {
             if (board[i] === '') {
-                board[i] = 'X';
+                board[i] = player1.name;
                 let score = minimax(board, depth + 1, true, alpha, beta);
                 board[i] = '';
                 minScore = Math.min(minScore, score);

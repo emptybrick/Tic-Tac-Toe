@@ -16,8 +16,13 @@ body {
   width: 30%;
   aspect-ratio: 1/1;
   border: 3px solid black;
-  font-size: 64px;
-  text-align: center;
+  background-size: 70px;
+  background-position: center;
+  background-repeat: no-repeat;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
 }
 
 #restart {
